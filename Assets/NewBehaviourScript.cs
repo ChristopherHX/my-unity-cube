@@ -40,7 +40,7 @@ public class NewBehaviourScript : MonoBehaviour
                     Array.Reverse(bytes, i * 4, 4);
                     xyz[i] = BitConverter.ToSingle(bytes, i * 4);
                 }
-                //vector3.Set(xyz[0], /*xyz[1] - 9.81f*/ 0, xyz[1]);
+                vector3.Set(xyz[0], /*xyz[1] - 9.81f*/ 0, xyz[1]);
                 vector3rot.Set(xyz[3], xyz[4], xyz[5]);
             }
             // Move the object forward along its z axis 1 unit/second.
