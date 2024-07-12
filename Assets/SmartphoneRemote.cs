@@ -20,6 +20,7 @@ public class SmartphoneRemote : ScriptableObject
     private TcpListener listener = null;
     public Vector3 accel = new Vector3();
     public Vector3 gyro = new Vector3();
+    public int Port = 0;
 
     private CancellationTokenSource cancellationToken = null;
 
@@ -39,8 +40,9 @@ public class SmartphoneRemote : ScriptableObject
             return;
         }
         cancellationToken = new CancellationTokenSource();
-        listener = new TcpListener(IPAddress.Any, 8904);
+        listener = new TcpListener(IPAddress.Any, 0);
         listener.Start();
+        Port = ((IPEndPoint)listener.LocalEndpoint).Port;
         await Task.Run(async () => {
             while(!cancellationToken.IsCancellationRequested) {
                 var socket = await listener.AcceptSocketAsync();
