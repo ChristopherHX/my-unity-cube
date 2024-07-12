@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 960687095}
   - component: {fileID: 960687094}
   - component: {fileID: 960687096}
-  - component: {fileID: 960687097}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -396,21 +395,6 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &960687097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960687088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078f8307daf99a744842461657dcb2b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smartphoneRemote: {fileID: 11400000, guid: f1b29b3d8a544b64997e1b4830dfcf20, type: 2}
-  accel: {x: 0, y: 0, z: 0}
-  gyro: {x: 0, y: 0, z: 0}
 --- !u!1 &1047744172
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +577,6 @@ GameObject:
   - component: {fileID: 1738406599}
   - component: {fileID: 1738406598}
   - component: {fileID: 1738406597}
-  - component: {fileID: 1738406601}
   - component: {fileID: 1738406603}
   - component: {fileID: 1738406602}
   m_Layer: 0
@@ -689,21 +672,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1738406601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738406594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078f8307daf99a744842461657dcb2b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smartphoneRemote: {fileID: 11400000, guid: f1b29b3d8a544b64997e1b4830dfcf20, type: 2}
-  accel: {x: 0, y: 0, z: 0}
-  gyro: {x: 0, y: 0, z: 0}
 --- !u!114 &1738406602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +915,6 @@ GameObject:
   - component: {fileID: 1908417337}
   - component: {fileID: 1908417336}
   - component: {fileID: 1908417335}
-  - component: {fileID: 1908417339}
   - component: {fileID: 1908417338}
   m_Layer: 0
   m_Name: VisualScripting SceneVariables
@@ -1017,21 +984,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"eb4c08dc-0368-4598-bd8c-4cb26f2de348","$version":"A","$type":"Unity.VisualScripting.Start","$id":"10"},{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":60.0},"guid":"69a37199-e156-42b1-898a-eb42549990cf","$version":"A","$type":"Unity.VisualScripting.Update","$id":"12"},{"member":{"name":"gyro","parameterTypes":null,"targetType":"SmartphoneRemote","targetTypeName":"SmartphoneRemote","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":-67.0,"y":-30.0},"guid":"2a2cfae9-c8e3-45c1-97ba-171096938e8d","$version":"A","$type":"Unity.VisualScripting.GetMember","$id":"14"},{"chainable":false,"parameterNames":["eulers"],"member":{"name":"Rotate","parameterTypes":["UnityEngine.Vector3"],"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"%eulers":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":192.0,"y":-121.0},"guid":"6a60fd0b-1568-4ada-99cb-dcb9832ea3b7","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"17"},{"defaultValues":{"b":{"x":114.6497,"y":114.6497,"z":114.6497,"$type":"UnityEngine.Vector3"}},"position":{"x":38.0,"y":133.0},"guid":"8b352045-4cc4-42fe-95b9-ca3e400e8cd8","$version":"A","$type":"Unity.VisualScripting.Vector3Multiply","$id":"21"},{"sourceUnit":{"$ref":"12"},"sourceKey":"trigger","destinationUnit":{"$ref":"17"},"destinationKey":"enter","guid":"c270bf8b-7cd3-43c7-8a3c-2bb9eb993ef9","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"17"},"destinationKey":"enter","guid":"3dc22fe2-e643-41f8-8ac9-048f31911dd3","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"product","destinationUnit":{"$ref":"17"},"destinationKey":"%eulers","guid":"1940bc1f-3d44-4436-aa89-59b5f6f25915","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"value","destinationUnit":{"$ref":"21"},"destinationKey":"a","guid":"f06aaf3d-408b-4d14-a0da-68323ee6d111","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
     _objectReferences:
     - {fileID: 11400000, guid: f1b29b3d8a544b64997e1b4830dfcf20, type: 2}
---- !u!114 &1908417339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908417334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078f8307daf99a744842461657dcb2b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smartphoneRemote: {fileID: 11400000, guid: f1b29b3d8a544b64997e1b4830dfcf20, type: 2}
-  accel: {x: 0, y: 0, z: 0}
-  gyro: {x: 0, y: 0, z: 0}
 --- !u!1 &1931873055
 GameObject:
   m_ObjectHideFlags: 0
