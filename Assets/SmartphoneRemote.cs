@@ -55,19 +55,23 @@ public class SmartphoneRemote : ScriptableObject
     private async void ProcessInputs(Socket s) {
         while(!cancellationToken.IsCancellationRequested) {
             byte[] bytes = new byte[4 * 9];
-            int received = s.Receive(bytes);
-            if(received != bytes.Length) {
-                break;
+            int r = 0;
+            while(r < bytes.Length) {
+                int received = s.Receive(bytes, r, bytes.Length - r, SocketFlags.None);
+                if(received <= 0) {
+                    break;
+                }
+                r += received;
             }
             float[] xyz = new float[9];
             for(int i = 0; i < 9; i++) {
                 Array.Reverse(bytes, i * 4, 4);
                 xyz[i] = BitConverter.ToSingle(bytes, i * 4);
             }
-            accel.Set(xyz[0], xyz[1], xyz[1]);
+            accel.Set(xyz[0], xyz[1], xyz[2]);
             gyro.Set(xyz[3], xyz[4], xyz[5]);
             position.Set(xyz[6], xyz[7], xyz[8]);
-            await Task.Delay(10);
+            // await Task.Delay(10);
         }
     }
 
