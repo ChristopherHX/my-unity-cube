@@ -20,8 +20,12 @@ public class SmartphoneRemote : ScriptableObject
     public Vector3 accel = new Vector3();
     public Vector3 gyro = new Vector3();
     public Vector3 magn = new Vector3();
+    public Vector3 position = Vector3.zero;
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 lastAccel = Vector3.zero;
     public Quaternion quaternion = new Quaternion();
     public int Port = 0;
+    private float samplePeriod = 0.1f;
 
     private CancellationTokenSource cancellationToken = null;
     private MadgwickAHRS ahrs;
@@ -72,6 +76,19 @@ public class SmartphoneRemote : ScriptableObject
 
             ahrs.Update(gyro.x, gyro.y, gyro.z, accel.x, accel.y, accel.z, magn.x, magn.y, magn.z);
             quaternion = new Quaternion(ahrs.Quaternion[1], ahrs.Quaternion[2], ahrs.Quaternion[3], ahrs.Quaternion[0]);
+
+                    // Transform the accelerometer readings to the world frame
+        Vector3 worldAccel = quaternion * accel;
+
+        // Remove gravity from the accelerometer readings
+        worldAccel -= new Vector3(0, 9.81f, 0);
+
+        // Integrate acceleration to get velocity
+        velocity += worldAccel * samplePeriod;
+
+        // Integrate velocity to get position
+        position += velocity * samplePeriod;
+            
             await Task.Delay(10);
         }
     }

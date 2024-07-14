@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d0f8b7019ca234fb9e06abedbc32f9, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  accel: {x: 0, y: 0, z: 0}
-  gyro: {x: 0, y: 0, z: 0}
+  accel: {x: 0.27038896, y: 0.47318068, z: 0.47318068}
+  gyro: {x: -0.0003054324, y: -0.0001527162, z: -0.0001527162}
+  magn: {x: -24.6562, y: -17.3484, z: -42.334}
+  position: {x: 11600.466, y: -85456.18, z: 35356.21}
+  quaternion: {x: 0.06454014, y: -0.41006604, z: -0.70902485, w: 0.5700562}
+  Port: 41043
