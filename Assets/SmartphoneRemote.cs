@@ -21,6 +21,7 @@ public class SmartphoneRemote : ScriptableObject
     public Vector3 accel = new Vector3();
     public Vector3 gyro = new Vector3();
     public Vector3 position = new Vector3();
+    public Vector3 angle = new Vector3();
     public int Port = 0;
 
     private CancellationTokenSource cancellationToken = null;
@@ -54,7 +55,8 @@ public class SmartphoneRemote : ScriptableObject
 
     private async void ProcessInputs(Socket s) {
         while(!cancellationToken.IsCancellationRequested) {
-            byte[] bytes = new byte[4 * 9];
+            int entries = 3 * 4;
+            byte[] bytes = new byte[4 * entries];
             int r = 0;
             while(r < bytes.Length) {
                 int received = s.Receive(bytes, r, bytes.Length - r, SocketFlags.None);
@@ -63,14 +65,15 @@ public class SmartphoneRemote : ScriptableObject
                 }
                 r += received;
             }
-            float[] xyz = new float[9];
-            for(int i = 0; i < 9; i++) {
+            float[] xyz = new float[entries];
+            for(int i = 0; i < entries; i++) {
                 Array.Reverse(bytes, i * 4, 4);
                 xyz[i] = BitConverter.ToSingle(bytes, i * 4);
             }
             accel.Set(xyz[0], xyz[1], xyz[2]);
             gyro.Set(xyz[3], xyz[4], xyz[5]);
             position.Set(xyz[6], xyz[7], xyz[8]);
+            angle.Set(xyz[9], xyz[10], xyz[11]);
             // await Task.Delay(10);
         }
     }
